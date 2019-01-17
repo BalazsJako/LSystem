@@ -1,0 +1,24 @@
+ - import other rule files (so we also need import directory maybe)
+ - namespaces
+ - externally controlled parameters (export system-global parameters to the GUI and evaluate according to them)
+ - user-defined functions (functions in the functional sense: just set of expressions, no local variables)
+ - make labels optional
+ - add support matrix types and quaternions (from GLM)
+ - add support for AABB type
+ - add support for path type (series of control points + interpolation)
+ - enum types
+ - is 'var' section really necessary? what if we simply cross-check whether a rule is never referenced (it is necessary anyway)
+ - write a basic documentation and some useful comments (see also: http://algorithmicbotany.org/papers/sigcourse.2003/1-9-L-fundamentals.pdf)
+
+ DONE:
+
+  - switch to GLM
+ - describe what is the difference between normal/decomposition/homomoprhism rules:
+		normal:			If predecessor is matching and the condition evaluates to true, replace it with the successor (simply that, replacement is done only once),
+						(rules are evaluated breadth-first)
+		decomposition:	The rules are checked as normal, but when a replacement is made, it is checked again (recursion - depth first evaluation), 
+						until any changes are made. It is useful for recursive subdivision for example
+		homomorphism:	Similarly to decomposition rules, they are evaluated recursively until no further homomorphism rules apply, but their result does not appear in the
+						current state of the system. They are good to generate final data (geometry)
+		contexts:		it is possible to specify what modules must precede or follow the actual module to match the rule
+ - check label duplicates
